@@ -3,25 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <title>欢迎</title>
-    <link rel="stylesheet" href="https://unpkg.com/layui@2.8.18/dist/css/layui.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
     <style>
         body {
             background-color: #1e1e1e;
             color: #e0e0e0;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        .welcome-container {
+            padding: 40px;
+            text-align: center;
+        }
+        .welcome-title {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 1s ease forwards;
+        }
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background: #2d2d2d;
             padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
         }
-        .welcome-card {
-            background-color: #2d2d2d;
-            padding: 30px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #009688;
+        }
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .feature-card:nth-child(1) { animation-delay: 0.2s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+        .feature-card:nth-child(4) { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
-    <div class="welcome-card">
-        <h1><i class="layui-icon layui-icon-face-smile"></i> 欢迎来到数据结构与算法学习</h1>
-        <p>请从右侧菜单选择要学习的内容</p>
+    <div class="welcome-container">
+        <h1 class="welcome-title">
+            <i class="layui-icon layui-icon-code-circle"></i>
+            数据结构与算法学习平台
+        </h1>
+        
+        <div class="feature-cards">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="layui-icon layui-icon-list" style="font-size: 40px;"></i>
+                </div>
+                <h3>经典数据结构</h3>
+                <p>从链表到树结构，系统学习各类数据结构</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="layui-icon layui-icon-chart" style="font-size: 40px;"></i>
+                </div>
+                <h3>算法分析</h3>
+                <p>深入理解算法复杂度与优化技巧</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="layui-icon layui-icon-template" style="font-size: 40px;"></i>
+                </div>
+                <h3>可视化教学</h3>
+                <p>通过动态演示加深算法理解</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="layui-icon layui-icon-fonts-code" style="font-size: 40px;"></i>
+                </div>
+                <h3>实战练习</h3>
+                <p>丰富的编程实例和练习题</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

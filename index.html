@@ -18,6 +18,12 @@
         <div class="layui-side">
             <div class="layui-side-scroll">
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <!-- 添加首页链接 -->
+                    <li class="layui-nav-item home-link">
+                        <a href="welcome.html" target="contentFrame">
+                            <i class="layui-icon layui-icon-home"></i> 首页
+                        </a>
+                    </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;">链表</a>
                         <dl class="layui-nav-child">
@@ -58,6 +64,22 @@
     <script>
         layui.use(['element'], function(){
             var element = layui.element;
+            
+            // 获取iframe元素
+            var contentFrame = document.getElementById('contentFrame');
+            
+            // 监听iframe的load事件
+            contentFrame.addEventListener('load', function() {
+                // 获取当前加载的页面URL
+                var currentPage = contentFrame.contentWindow.location.pathname;
+                
+                // 检查是否是首页
+                if (currentPage.endsWith('welcome.html')) {
+                    contentFrame.style.transform = 'scale(1)';
+                } else {
+                    contentFrame.style.transform = 'scale(1.5)';
+                }
+            });
         });
     </script>
 </body>

@@ -98,11 +98,11 @@ body.dark-theme {
 #contentFrame {
     width: 625px;
     height: 625px;
-    border: none;
+    border: none;  /* 移除边框 */
     background-color: var(--bg-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transform: scale(1.5); /* 1.5倍缩放 */
-    transform-origin: center top; /* 从中心点缩放 */
+    box-shadow: none;  /* 移除阴影 */
+    transform-origin: center top;
+    transition: transform 0.3s ease;
 }
 
 /* 导航菜单暗色主题 */
@@ -139,4 +139,26 @@ body.dark-theme {
 .layui-nav-tree .layui-nav-child dd.layui-this,
 .layui-nav-tree .layui-nav-child dd.layui-this a {
     background-color: #009688;
+}
+
+/* 首页链接样式 */
+.home-link {
+    margin-bottom: 20px !important;
+    border-bottom: 1px solid var(--border-color);
+    overflow: visible !important; /* 确保内容不会被裁剪 */
+    height: auto !important; /* 自适应高度 */
+    line-height: normal !important; /* 重置行高 */
+}
+
+.home-link a {
+    padding: 15px 20px !important;
+    transition: all 0.3s ease;
+    display: flex !important; /* 使用flex布局 */
+    align-items: center !important; /* 垂直居中对齐 */
+    min-height: 50px !important; /* 设置最小高度 */
+}
+
+.home-link .layui-icon {
+    margin-right: 8px;
+    font-size: 18px;
 }
