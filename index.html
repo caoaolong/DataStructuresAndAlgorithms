@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodingSoul Datastructure And Algorithms</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="layui-layout-body dark-theme">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-body">
+            <div class="content-wrapper">
+                <iframe id="contentFrame" name="contentFrame" src="welcome.html" frameborder="0"></iframe>
+            </div>
+        </div>
+        
+        <div class="layui-side">
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">链表</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="book/1.单向链表.drawio.html" target="contentFrame">单向链表</a></dd>
+                            <dd><a href="pages/linkedlist.html" target="contentFrame">双向链表</a></dd>
+                            <dd><a href="pages/circularlist.html" target="contentFrame">循环链表</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">栈和队列</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="pages/stack.html" target="contentFrame">栈</a></dd>
+                            <dd><a href="pages/queue.html" target="contentFrame">队列</a></dd>
+                            <dd><a href="pages/deque.html" target="contentFrame">双端队列</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">树结构</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="pages/binarytree.html" target="contentFrame">二叉树</a></dd>
+                            <dd><a href="pages/avltree.html" target="contentFrame">AVL树</a></dd>
+                            <dd><a href="pages/rbtree.html" target="contentFrame">红黑树</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">图论</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="pages/graph.html" target="contentFrame">基础图结构</a></dd>
+                            <dd><a href="pages/dijkstra.html" target="contentFrame">最短路径</a></dd>
+                            <dd><a href="pages/mst.html" target="contentFrame">最小生成树</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="layui/layui.js"></script>
+    <script>
+        layui.use(['element'], function(){
+            var element = layui.element;
+        });
+    </script>
+</body>
+</html>

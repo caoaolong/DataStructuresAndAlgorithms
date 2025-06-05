@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #e0e0e0;
+}
+
+/* 暗黑主题 */
+.dark-theme {
+    --bg-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --menu-hover: #2d2d2d;
+    --border-color: #333;
+}
+
+body.dark-theme {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* 布局样式 */
+.layui-layout-admin .layui-body {
+    left: 200px;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+.layui-layout-admin .layui-side {
+    width: 200px;
+    top: 0;
+    background-color: var(--bg-color);
+    border-right: 1px solid var(--border-color);
+}
+
+/* 隐藏滚动条但保持功能 */
+.layui-side-scroll {
+    width: 220px;
+    overflow-x: hidden;
+}
+
+.layui-side-scroll::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+/* iframe容器样式 */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    min-height: 100%;
+    background-color: var(--bg-color);
+    overflow: hidden; /* 防止缩放后产生滚动条 */
+}
+
+/* iframe样式 */
+#contentFrame {
+    width: 625px;
+    height: 625px;
+    border: none;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.5); /* 1.5倍缩放 */
+    transform-origin: center top; /* 从中心点缩放 */
+}
+
+/* 导航菜单暗色主题 */
+.layui-nav {
+    background-color: var(--bg-color);
+}
+
+.layui-nav-tree .layui-nav-item {
+    background-color: var(--bg-color);
+}
+
+.layui-nav-tree .layui-nav-item a {
+    color: var(--text-color);
+}
+
+.layui-nav-tree .layui-nav-item a:hover {
+    background-color: var(--menu-hover);
+}
+
+.layui-nav-tree .layui-nav-child {
+    background-color: var(--bg-color);
+}
+
+.layui-nav-tree .layui-nav-child dd a {
+    padding-left: 30px;
+}
+
+/* 菜单展开/折叠动画 */
+.layui-nav-child {
+    transition: all 0.3s ease-in-out;
+}
+
+/* 选中状态 */
+.layui-nav-tree .layui-nav-child dd.layui-this,
+.layui-nav-tree .layui-nav-child dd.layui-this a {
+    background-color: #009688;
+}
