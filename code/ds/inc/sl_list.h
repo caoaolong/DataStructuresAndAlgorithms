@@ -10,8 +10,8 @@
 // Singly linked list
 
 typedef struct sl_node_t {
-    struct sl_node_t *next;
     void *data;
+    struct sl_node_t *next;
 } sl_node;
 
 typedef struct sl_list_t {
@@ -33,7 +33,7 @@ void sl_list_insert_front(sl_list *list, sl_node *node);
 void sl_list_insert_back(sl_list *list, sl_node *node);
 
 // 从指定节点处插入节点
-void sl_list_insert(sl_list *list, sl_node *inode, sl_node *node);
+void sl_list_insert(sl_list *list, int index, sl_node *node);
 
 // 获取指定索引处的节点
 sl_node *sl_list_node(const sl_list *list, int index);
