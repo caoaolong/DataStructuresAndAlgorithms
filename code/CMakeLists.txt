@@ -9,4 +9,8 @@ add_executable(code ds/src/main.c
         ds/inc/sl_list.h
         ds/src/sl_list.c
         ds/inc/dl_list.h
-        ds/src/dl_list.c)
+        ds/src/dl_list.c
+        ds/inc/cl_list.h
+        ds/src/cl_list.c
+        ds/inc/array.h
+        ds/src/array.c)
