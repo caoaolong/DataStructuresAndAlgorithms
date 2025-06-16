@@ -13,4 +13,6 @@ add_executable(code ds/src/main.c
         ds/inc/cl_list.h
         ds/src/cl_list.c
         ds/inc/array.h
-        ds/src/array.c)
+        ds/src/array.c
+        ds/inc/queue.h
+        ds/src/queue.c)
