@@ -8,31 +8,25 @@
 #include <array.h>
 #include <dl_list.h>
 
-typedef array queue_array;
-
 // 队列（数组实现，前入后出）
 
-queue_array *queue_array_create();
+typedef array queue_array;
 
-void queue_array_enqueue(queue_array *queue, void *data);
-
-void *queue_array_dequeue(queue_array *queue);
-
-void *queue_array_peek(const queue_array *queue);
+#define queue_array_create          array_create
+#define queue_array_destroy         array_destroy
+#define queue_array_enqueue         array_insert_back
+#define queue_array_dequeue         array_remove_front
+#define queue_list_peek(V)          array_node((V), (int)(V)->size - 1)
 
 // 队列（双向链表实现）
 
 typedef dl_list queue_list;
 typedef dl_node queue_node;
 
-queue_list *queue_list_create();
-
-queue_node *queue_node_create(void *data);
-
-void queue_list_enqueue(queue_list *queue, queue_node *node);
-
-queue_node *queue_list_dequeue(queue_list *queue);
-
-queue_node *queue_list_peek(const queue_list *queue);
+#define queue_list_create           dl_list_create
+#define queue_node_create           dl_node_create
+#define queue_list_enqueue          dl_list_insert_back
+#define queue_list_dequeue          dl_list_remove_front
+#define queue_list_peek(V)          (V)->tail
 
 #endif //QUEUE_H
