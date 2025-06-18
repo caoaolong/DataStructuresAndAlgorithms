@@ -16,4 +16,5 @@ add_executable(code ds/src/main.c
         ds/src/array.c
         ds/inc/queue.h
         ds/inc/buffer.h
-        ds/src/buffer.c)
+        ds/src/buffer.c
+        ds/inc/stack.h)
