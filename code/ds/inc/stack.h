@@ -8,7 +8,7 @@
 #include <dl_list.h>
 
 typedef dl_list stack;
-typedef dl_list node;
+typedef dl_list stack_node;
 
 #define stack_push      dl_list_insert_back()
 #define stack_pop       dl_list_remove_back()

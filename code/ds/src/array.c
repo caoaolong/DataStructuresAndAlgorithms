@@ -44,7 +44,7 @@ void array_insert_front(array *array, void *data) {
         array_expand(array);
 
     // 等同于从中间插入
-    array_insert_front(array, 0, data);
+    array_insert(array, 0, data);
 }
 
 // 从尾部插入
@@ -61,7 +61,7 @@ void array_insert_back(array *array, void *data) {
 }
 
 // 从中间插入
-void array_insert_front(array *array, const int index, void *data) {
+void array_insert(array *array, const int index, void *data) {
     // 处理异常情况
     if (!array) return;
     // 判断是否需要扩容

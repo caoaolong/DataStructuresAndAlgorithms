@@ -1,29 +1,13 @@
 ﻿#include <stdio.h>
-#include <dl_list.h>
+#include <ex.h>
 
 int main(void) {
-    int array[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    dl_list *list = dl_list_create();
-    for (int i = 0; i < 10; i++) {
-        dl_node *node = dl_node_create(&array[i]);
-        dl_list_insert_front(list, node);
+    const int array[] = {1, 3, -1, -3, 5, 3, 6, 7};
+    const int len = sizeof(array) / sizeof(array[0]);
+    const int k = 3;
+    const int *result = max_sliding_window(array, sizeof(array) / sizeof(int), k);
+    for (int i = 0; i < len - k + 1; i++) {
+        printf("%d ", result[i]);
     }
-
-    for (int i = 0; i < 10; i++) {
-        dl_node *node = dl_node_create(&array[i]);
-        dl_list_insert_back(list, node);
-    }
-
-    int value = 20;
-    dl_node *node = dl_node_create(&value);
-    dl_list_insert(list, 3, node);
-
-    const dl_node *p = list->head;
-    while (p != NULL) {
-        const int *data = p->data;
-        printf("%d ", *data);
-        p = p->next;
-    }
-    printf("\n");
     return 0;
 }

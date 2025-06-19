@@ -23,7 +23,7 @@ void array_insert_front(array *array, void *data);
 void array_insert_back(array *array, void *data);
 
 // 从中间插入
-void array_insert_front(array *array, int index, void *data);
+void array_insert(array *array, int index, void *data);
 
 // 获取节点
 void *array_node(const array *array, int index);

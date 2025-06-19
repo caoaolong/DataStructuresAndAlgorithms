@@ -17,4 +17,7 @@ add_executable(code ds/src/main.c
         ds/inc/queue.h
         ds/inc/buffer.h
         ds/src/buffer.c
-        ds/inc/stack.h)
+        ds/inc/stack.h
+        ds/inc/deque.h
+        ds/src/ex/max_sliding_window.c
+        ds/inc/ex.h)
