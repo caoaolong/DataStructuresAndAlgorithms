@@ -20,4 +20,5 @@ add_executable(code ds/src/main.c
         ds/inc/stack.h
         ds/inc/deque.h
         ds/src/ex/max_sliding_window.c
-        ds/inc/ex.h)
+        ds/inc/ex.h
+        ds/src/sort/bubble.c)
