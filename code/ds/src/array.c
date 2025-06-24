@@ -16,11 +16,11 @@ array *array_create() {
 }
 
 static bool array_expand(array *arr) {
-    if (!arr || !arr->data)
+    if (!arr->data)
         return false;
     // 每次扩大到原来的两倍
     arr->capacity *= 2;
-    void **data = realloc(arr->data, sizeof(void *) * arr->capacity);
+    int64_t *data = realloc(arr->data, sizeof(void *) * arr->capacity);
     if (data) {
         arr->data = data;
         return true;
@@ -36,7 +36,7 @@ static bool array_is_full(const array *arr) {
 }
 
 // 从头部插入
-void array_insert_front(array *array, void *data) {
+void array_insert_front(array *array, const int64_t data) {
     // 处理异常情况
     if (!array) return;
     // 判断是否需要扩容
@@ -48,7 +48,7 @@ void array_insert_front(array *array, void *data) {
 }
 
 // 从尾部插入
-void array_insert_back(array *array, void *data) {
+void array_insert_back(array *array, const int64_t data) {
     // 处理异常情况
     if (!array) return;
     // 判断是否需要扩容
@@ -61,7 +61,7 @@ void array_insert_back(array *array, void *data) {
 }
 
 // 从中间插入
-void array_insert(array *array, const int index, void *data) {
+void array_insert(array *array, const int index, const int64_t data) {
     // 处理异常情况
     if (!array) return;
     // 判断是否需要扩容
@@ -77,41 +77,41 @@ void array_insert(array *array, const int index, void *data) {
 }
 
 // 获取节点
-void *array_node(const array *array, const int index) {
+int64_t array_node(const array *array, const int index) {
     // 处理异常情况
-    if (!array) return NULL;
+    if (!array) return 0;
 
     // 核心逻辑
     return array->data[index];
 }
 
 // 从头部删除
-void *array_remove_front(array *array) {
+int64_t array_remove_front(array *array) {
     // 处理异常情况
-    if (!array) return NULL;
+    if (!array) return 0;
 
     // 等同于从中间删除
     return array_remove(array, 0);
 }
 
 // 从尾部删除
-void *array_remove_back(array *array) {
+int64_t array_remove_back(array *array) {
     // 处理异常情况
-    if (!array) return NULL;
+    if (!array) return 0;
 
     // 核心逻辑
-    void *data = array->data[array->size - 1];
+    const int64_t data = array->data[array->size - 1];
     array->size--;
     return data;
 }
 
 // 从中间删除
-void *array_remove(array *array, const int index) {
+int64_t array_remove(array *array, const int index) {
     // 处理异常情况
-    if (!array) return NULL;
+    if (!array) return 0;
 
     // 核心逻辑
-    void *data = array->data[array->size - 1];
+    const int64_t data = array->data[array->size - 1];
     for (size_t i = index; i <  array->size; i++) {
         array->data[i] = array->data[i + 1];
     }
@@ -122,9 +122,5 @@ void *array_remove(array *array, const int index) {
 // 释放数组
 void array_destroy(const array *array) {
     if (!array) return;
-
-    for (int i = 0; i < array->size; i++) {
-        free(array->data[i]);
-    }
     free(array->data);
 }

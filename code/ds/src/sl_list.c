@@ -13,7 +13,7 @@ sl_list *sl_list_create() {
 }
 
 // 创建单向链表节点
-sl_node *sl_node_create(void *data) {
+sl_node *sl_node_create(const int64_t data) {
     sl_node *node = malloc(sizeof(sl_node));
     node->data = data;
     node->next = NULL;

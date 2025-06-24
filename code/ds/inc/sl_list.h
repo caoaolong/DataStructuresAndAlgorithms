@@ -10,7 +10,10 @@
 // Singly linked list
 
 typedef struct sl_node_t {
-    void *data;
+    union {
+        int64_t data;
+        int64_t value;
+    };
     struct sl_node_t *next;
 } sl_node;
 
@@ -24,7 +27,7 @@ typedef struct sl_list_t {
 sl_list *sl_list_create();
 
 // 创建单向链表节点
-sl_node *sl_node_create(void *data);
+sl_node *sl_node_create(int64_t data);
 
 // 从头部插入节点
 void sl_list_insert_front(sl_list *list, sl_node *node);
